@@ -1,0 +1,19 @@
+{
+  "name": "esp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohsini172/Carts.git"
+  },
+  "author": "mohsini172",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohsini172/Carts/issues"
+  },
+  "homepage": "https://github.com/mohsini172/Carts#readme"
+}
