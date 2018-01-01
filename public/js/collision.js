@@ -11,7 +11,7 @@ function update() {
 		var ray = new THREE.Raycaster( originPoint, directionVector.clone().normalize() );
 		var collisionResults = ray.intersectObjects( collidableMeshList );
 		if ( collisionResults.length > 0 && collisionResults[0].distance < directionVector.length() ){
-			console.log("Hit");
+			onCollision();
 		}
 
 	}	
