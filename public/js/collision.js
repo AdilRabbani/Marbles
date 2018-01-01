@@ -3,7 +3,8 @@ function update() {
 	var originPoint = cube.position.clone();
 	
 	for (var vertexIndex = 0; vertexIndex < cube.geometry.vertices.length; vertexIndex++)
-	{		
+	{
+				
 		var localVertex = cube.geometry.vertices[vertexIndex].clone();
 		var globalVertex = localVertex.applyMatrix4( cube.matrix );
 		var directionVector = globalVertex.sub( cube.position );
