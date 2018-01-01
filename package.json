@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mohsini172/Carts/issues"
   },
-  "homepage": "https://github.com/mohsini172/Carts#readme"
+  "homepage": "https://github.com/mohsini172/Carts#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }

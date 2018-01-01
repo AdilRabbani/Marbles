@@ -30,17 +30,24 @@ function init() {
 
 	//for ( var i = 0; i < 100; i ++ ) {
 
-	cube = new THREE.Mesh(geometry, material);
+	cube = new THREE.Mesh( geometry, material );
 
-	cube.scale.y = Math.floor(Math.random() * 2 + 1);
+	cube.position.x = 50;
+	cube.position.y = 50;
+	cube.position.z = 50;
 
-	cube.position.x = Math.floor((Math.random() * 1000 - 500) / 50) * 50 + 25;
-	cube.position.y = (cube.scale.y * 50) / 2;
-	cube.position.z = Math.floor((Math.random() * 1000 - 500) / 50) * 50 + 25;
+	scene.add( cube );
 
-	scene.add(cube);
 
-	//}
+	cube_2 = new THREE.Mesh(geometry, material);
+	cube_2.position.x = 50;
+	cube_2.position.y = 50;
+	cube_2.position.z = 400;
+
+	cube_2.rotation.z = Math.PI / 2;
+
+	scene.add(cube_2)
+
 
 	// Lights
 
@@ -73,6 +80,8 @@ function init() {
 
 	stats = new Stats();
 	container.appendChild(stats.dom);
+
+	initCollision();
 
 	//
 
