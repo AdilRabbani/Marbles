@@ -13,9 +13,14 @@ function init() {
 	scene.background = new THREE.Color(0xf0f0f0);
 
 	var aspect = window.innerWidth / window.innerHeight;
-	camera = new THREE.OrthographicCamera(window.innerWidth / - 1, window.innerWidth / 1, window.innerHeight / 1, window.innerHeight / - 1, -1000, 10000);
-    // camera = new THREE.PerspectiveCamera(100,aspect,0.1,3000);
-	camera.position.z = 100;
+
+	// don't erase orthographic camera, i'll try working on this more
+	// we'll work on perspective until the game is completed
+
+//	camera = new THREE.OrthographicCamera(window.innerWidth / - 1, window.innerWidth / 1, window.innerHeight / 1, window.innerHeight / - 1, -1000, 10000);
+     camera = new THREE.PerspectiveCamera(100,aspect,0.1,3000);
+	// camera.position.z = 100;
+	camera.position.z = 1000;
 	camera.position.y = 100;
 	// camera.position.x = 100;
 
@@ -47,7 +52,7 @@ function init() {
 
 
 
-	var floor_2 = new THREE.RingGeometry(10, 100, 100);
+	var floor_2 = new THREE.RingGeometry(1000, 1100, 100);
 	var material = new THREE.MeshBasicMaterial({ color: 0X636666 });
 	var mesh = new THREE.Mesh(floor_2, material);
 	mesh.position.x = 0;
@@ -55,23 +60,30 @@ function init() {
 	scene.add(mesh);
 
 
+	var floor_3 = new THREE.RingGeometry(150, 300, 100);
+	var material = new THREE.MeshBasicMaterial({ color: 0X636666 });
+	var mesh = new THREE.Mesh(floor_3, material);
+	mesh.position.x = 0;
+	mesh.position.y = 0;
+	scene.add(mesh);
+
 	// Cubes
 
 	var geometry = new THREE.BoxGeometry(50, 50, 50);
 	var material = new THREE.MeshLambertMaterial({ color: 0x52ea7a, overdraw: 0.5 });
 
 	cube = new THREE.Mesh(geometry, material);
-	cube.position.x = 50;
+	cube.position.x = -450;
 	cube.position.y = 150;
-	cube.position.z = 0;
+	cube.position.z = 20;
 	scene.add(cube);
 
 
 	cube_2 = new THREE.Mesh(geometry, material);
-	cube_2.position.x = 150;
+	cube_2.position.x = 450;
 	cube_2.position.y = 150;
-	cube_2.position.z = 0;
-	cube_2.rotation.z = Math.PI / 2;
+	cube_2.position.z = 20;
+	//cube_2.rotation.z = Math.PI / 2;
 	scene.add(cube_2)
 
 

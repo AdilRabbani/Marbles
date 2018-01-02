@@ -1,7 +1,7 @@
 document.body.onkeydown = function (e) {
 
 	if (e.keyCode == 87 && accelaration < 10) {
-		accelaration += 0.1;
+		accelaration += 0.5;
 	}
 
 };

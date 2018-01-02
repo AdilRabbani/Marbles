@@ -21,7 +21,7 @@ function animate() {
 
 	controls.update();
 	stats.begin();
-	cube.translateZ(accelaration);
+	cube.translateX(accelaration);
 	render();
 	update();
 	stats.end();
