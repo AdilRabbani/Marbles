@@ -23,6 +23,7 @@ function animate() {
 	stats.begin();
 	// cube.translateX(accelaration);
 	cube.translateOnAxis ( movement.direction, accelaration )
+	movement.move();
 	render();
 	update();
 	stats.end();

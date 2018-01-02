@@ -1,20 +1,7 @@
 var pressedKeys = [];
 
 document.body.onkeydown = function (e) {
-
-	if (e.keyCode == 87 && accelaration < 10) {
-		accelaration += 0.5;
-	}
-	else if (e.keyCode == 83 && accelaration < 10) {
-		accelaration -= 0.5;
-	}
-	else if (e.keyCode == 65) {
-		movement.left();
-	}
-	else if (e.keyCode == 68) {
-		movement.right();
-	}
-
+	pressedKeys[e.keyCode] = e.type == 'keydown';
 };
 
 document.body.onkeyup = function (e) {
@@ -24,6 +11,7 @@ document.body.onkeyup = function (e) {
 	else if (e.keyCode == 83) {
 		increaseAccel(100);
 	}
+	pressedKeys[e.keyCode] = e.type == 'keydown';
 };
 
 function reduceAccel(index) {
