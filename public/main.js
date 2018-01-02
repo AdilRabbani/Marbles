@@ -21,7 +21,8 @@ function animate() {
 
 	controls.update();
 	stats.begin();
-	cube.translateX(accelaration);
+	// cube.translateX(accelaration);
+	cube.translateOnAxis ( movement.direction, accelaration )
 	render();
 	update();
 	stats.end();
