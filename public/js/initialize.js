@@ -20,47 +20,66 @@ function init() {
 
 	// Grid
 
-	var gridHelper = new THREE.GridHelper(1000, 20);
-	scene.add(gridHelper);
+	var floor = new THREE.RingGeometry(300,1000,50);
+	var material = new THREE.MeshLambertMaterial({color : 0X6366E2});
+	var mesh = new THREE.Mesh(floor , material);
+	mesh.rotation.z = 0;
+	mesh.rotation.y = 0;
+	mesh.rotation.x = 300;
+	mesh.position.x = 50;
+	mesh.position.y = 100;
+	scene.add(mesh);
+
+
+
+	var floor_2 = new THREE.RingGeometry(900,1100,50);
+	var material = new THREE.MeshLambertMaterial({color : 0X636666});
+	var mesh = new THREE.Mesh(floor_2 , material);
+	mesh.rotation.z = 0;
+	mesh.rotation.y = 0;
+	mesh.rotation.x = 300;
+	mesh.position.x = 50;
+	mesh.position.y = 100;
+	scene.add(mesh);
+
+	//var gridHelper = new THREE.GridHelper(1000, 20);
+	//scene.add(gridHelper);
 
 	// Cubes
 
 	var geometry = new THREE.BoxGeometry(50, 50, 50);
-	var material = new THREE.MeshLambertMaterial({ color: 0xffffff, overdraw: 0.5 });
+	var material = new THREE.MeshLambertMaterial({ color: 0x112244, overdraw: 0.5 });
 
 	//for ( var i = 0; i < 100; i ++ ) {
 
-	cube = new THREE.Mesh(geometry, material);
+	cube = new THREE.Mesh( geometry, material );
 
-	cube.scale.y = Math.floor(Math.random() * 2 + 1);
+	cube.position.x = 50;
+	cube.position.y = 150;
+	cube.position.z = 50;
 
-	cube.position.x = Math.floor((Math.random() * 1000 - 500) / 50) * 50 + 25;
-	cube.position.y = (cube.scale.y * 50) / 2;
-	cube.position.z = Math.floor((Math.random() * 1000 - 500) / 50) * 50 + 25;
+	scene.add( cube );
 
-	scene.add(cube);
 
-	//}
+	cube_2 = new THREE.Mesh(geometry, material);
+	cube_2.position.x = 50;
+	cube_2.position.y = 150;
+	cube_2.position.z = 750;
+
+	cube_2.rotation.z = Math.PI / 2;
+
+	scene.add(cube_2)
+
 
 	// Lights
 
-	var ambientLight = new THREE.AmbientLight(Math.random() * 0x10);
-	scene.add(ambientLight);
-
-	var directionalLight = new THREE.DirectionalLight(Math.random() * 0xffffff);
-	directionalLight.position.x = Math.random() - 0.5;
-	directionalLight.position.y = Math.random() - 0.5;
-	directionalLight.position.z = Math.random() - 0.5;
-	directionalLight.position.normalize();
-	scene.add(directionalLight);
-
-
-	var directionalLight = new THREE.DirectionalLight(Math.random() * 0xffffff);
-	directionalLight.position.x = Math.random() - 0.5;
-	directionalLight.position.y = Math.random() - 0.5;
-	directionalLight.position.z = Math.random() - 0.5;
-	directionalLight.position.normalize();
-	scene.add(directionalLight);
+	var light = new THREE.AmbientLight(0xffffff,0.5);
+        
+    scene.add(light);
+        
+    var light1 = new THREE.PointLight(0xffEEff,0.5);
+        
+    scene.add(light1);
 
 
 	//loading the car object
@@ -73,6 +92,15 @@ function init() {
 
 	stats = new Stats();
 	container.appendChild(stats.dom);
+
+	controls = new THREE.OrbitControls( camera, renderer.domElement );
+	controls.addEventListener( 'change', render ); // remove when using animation loop
+				// enable animation loop when using damping or autorotation
+				//controls.enableDamping = true;
+				//controls.dampingFactor = 0.25;
+	controls.enableZoom = false;
+
+	initCollision();
 
 	//
 

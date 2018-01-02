@@ -1,13 +1,13 @@
 document.body.onkeydown = function (e) {
 
-	if (e.keyCode == 38 && accelaration < 10) {
+	if (e.keyCode == 87 && accelaration < 10) {
 		accelaration += 0.1;
 	}
 
 };
 
 document.body.onkeyup = function (e) {
-	if (e.keyCode == 38) {
+	if (e.keyCode == 87) {
 		reduceAccel(100);
 	}
 };
