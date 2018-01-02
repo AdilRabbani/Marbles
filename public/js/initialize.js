@@ -13,8 +13,8 @@ function init() {
 	scene.background = new THREE.Color(0xf0f0f0);
 
 	var aspect = window.innerWidth / window.innerHeight;
-	// camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, -1000, 10000);
-    camera = new THREE.PerspectiveCamera(100,aspect,0.1,3000);
+	camera = new THREE.OrthographicCamera(window.innerWidth / - 1, window.innerWidth / 1, window.innerHeight / 1, window.innerHeight / - 1, -1000, 10000);
+    // camera = new THREE.PerspectiveCamera(100,aspect,0.1,3000);
 	camera.position.z = 100;
 	camera.position.y = 100;
 	// camera.position.x = 100;
