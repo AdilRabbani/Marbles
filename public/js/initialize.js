@@ -32,42 +32,8 @@ function init() {
 	var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
 	scene.add( directionalLight );
 
-	// var pointLight = new THREE.PointLight(0xffffff, 100, 1000);
-	// pointLight.position.set(-900, 100, 100);
-	// scene.add(pointLight);
 
-	// var sphereSize = 5;
-	// var pointLightHelper = new THREE.PointLightHelper(pointLight, sphereSize);
-	// scene.add(pointLightHelper);
-
-
-	// Grid
-
-	// var floor = new THREE.RingGeometry(300, 1000, 100);
-	// var material = new THREE.MeshBasicMaterial({ color: 0X6366E2 });
-	// var mesh = new THREE.Mesh(floor, material);
-	// mesh.position.x = 0;
-	// mesh.position.y = 0;
-	// scene.add(mesh);
-
-
-
-	// var floor_2 = new THREE.RingGeometry(1000, 1100, 100);
-	// var material = new THREE.MeshBasicMaterial({ color: 0X636666 });
-	// var mesh = new THREE.Mesh(floor_2, material);
-	// mesh.position.x = 0;
-	// mesh.position.y = 0;
-	// scene.add(mesh);
-
-
-	// var floor_3 = new THREE.RingGeometry(150, 300, 100);
-	// var material = new THREE.MeshBasicMaterial({ color: 0X636666 });
-	// var mesh = new THREE.Mesh(floor_3, material);
-	// mesh.position.x = 0;
-	// mesh.position.y = 0;
-	// scene.add(mesh);
-
-
+	// Floor
 
 	var floor = new THREE.Geometry();
         floor.vertices.push(
@@ -120,6 +86,18 @@ function init() {
 
 		mesh.position.x = -300;
 		mesh.position.y = 400;
+
+		scene.add(mesh);
+
+
+
+		var fence_1 = new THREE.BoxGeometry(500,800,200);
+
+		var material = new THREE.MeshLambertMaterial({color : 0X666666});
+        var mesh = new THREE.Mesh(fence_1,material);
+
+		mesh.position.x = -50;
+		mesh.position.z = 100;
 
 		scene.add(mesh);
 
