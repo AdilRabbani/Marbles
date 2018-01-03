@@ -43,33 +43,89 @@ function init() {
 
 	// Grid
 
-	var floor = new THREE.RingGeometry(300, 1000, 100);
-	var material = new THREE.MeshBasicMaterial({ color: 0X6366E2 });
-	var mesh = new THREE.Mesh(floor, material);
-	mesh.position.x = 0;
-	mesh.position.y = 0;
-	scene.add(mesh);
+	// var floor = new THREE.RingGeometry(300, 1000, 100);
+	// var material = new THREE.MeshBasicMaterial({ color: 0X6366E2 });
+	// var mesh = new THREE.Mesh(floor, material);
+	// mesh.position.x = 0;
+	// mesh.position.y = 0;
+	// scene.add(mesh);
 
 
 
-	var floor_2 = new THREE.RingGeometry(1000, 1100, 100);
-	var material = new THREE.MeshBasicMaterial({ color: 0X636666 });
-	var mesh = new THREE.Mesh(floor_2, material);
-	mesh.position.x = 0;
-	mesh.position.y = 0;
-	scene.add(mesh);
+	// var floor_2 = new THREE.RingGeometry(1000, 1100, 100);
+	// var material = new THREE.MeshBasicMaterial({ color: 0X636666 });
+	// var mesh = new THREE.Mesh(floor_2, material);
+	// mesh.position.x = 0;
+	// mesh.position.y = 0;
+	// scene.add(mesh);
 
 
-	var floor_3 = new THREE.RingGeometry(150, 300, 100);
-	var material = new THREE.MeshBasicMaterial({ color: 0X636666 });
-	var mesh = new THREE.Mesh(floor_3, material);
-	mesh.position.x = 0;
-	mesh.position.y = 0;
-	scene.add(mesh);
+	// var floor_3 = new THREE.RingGeometry(150, 300, 100);
+	// var material = new THREE.MeshBasicMaterial({ color: 0X636666 });
+	// var mesh = new THREE.Mesh(floor_3, material);
+	// mesh.position.x = 0;
+	// mesh.position.y = 0;
+	// scene.add(mesh);
+
+
+
+	var floor = new THREE.Geometry();
+        floor.vertices.push(
+
+        	new THREE.Vector3(-600,600,0),
+        	new THREE.Vector3(-600,0,0),
+        	new THREE.Vector3(1100,600,0),
+
+        	new THREE.Vector3(-600,0,0),
+        	new THREE.Vector3(1100,0,0),
+        	new THREE.Vector3(1100,600,0),
+
+        	new THREE.Vector3(-600,0,0),
+        	new THREE.Vector3(-600,-800,0),
+        	new THREE.Vector3(0,-800,0),
+
+        	new THREE.Vector3(0,-800,0),
+        	new THREE.Vector3(0,0,0),
+        	new THREE.Vector3(-600,0,0),
+
+        	new THREE.Vector3(1100,0,0),
+        	new THREE.Vector3(500,0,0),
+        	new THREE.Vector3(500,-800,0),
+
+        	new THREE.Vector3(500,-800,0),
+        	new THREE.Vector3(1100,-800,0),
+        	new THREE.Vector3(1100,0,0),
+
+        	new THREE.Vector3(-600,-800,0),
+        	new THREE.Vector3(-600,-1400,0),
+        	new THREE.Vector3(1100,-1400,0),
+
+        	new THREE.Vector3(1100,-1400,0),
+        	new THREE.Vector3(1100,-800,0),
+        	new THREE.Vector3(-600,-800,0)
+
+        	);
+
+        floor.faces.push(new THREE.Face3(0,1,2),
+        	new THREE.Face3(3,4,5),
+        	new THREE.Face3(6,7,8),
+        	new THREE.Face3(9,10,11),
+        	new THREE.Face3(12,13,14),
+        	new THREE.Face3(15,16,17),
+        	new THREE.Face3(18,19,20),
+        	new THREE.Face3(21,22,23));
+
+        var material = new THREE.MeshLambertMaterial({color : 0X6366E2});
+        var mesh = new THREE.Mesh(floor,material);
+
+		mesh.position.x = -300;
+		mesh.position.y = 400;
+
+		scene.add(mesh);
 
 	// Cubes
 
-	var geometry = new THREE.BoxGeometry(50, 50, 50);
+	var geometry = new THREE.CubeGeometry(50, 50, 50);
 	var material = new THREE.MeshLambertMaterial({ color: 0x52ea7a, overdraw: 0.5 });
 
 	cube = new THREE.Mesh(geometry, material);
