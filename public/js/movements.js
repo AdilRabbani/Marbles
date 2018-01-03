@@ -1,7 +1,3 @@
-function onCollision() {
-	console.log("collision")
-}
-
 
 var movement = {
 	direction: new THREE.Vector3(1, 0, 0),

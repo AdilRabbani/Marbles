@@ -25,7 +25,7 @@ function animate() {
 	cube.translateOnAxis ( movement.direction, accelaration )
 	movement.move();
 	render();
-	update();
+	console.log(update());
 	stats.end();
 
 }

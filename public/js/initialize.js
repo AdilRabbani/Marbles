@@ -125,23 +125,25 @@ function init() {
 
 	// Cubes
 
-	var geometry = new THREE.CubeGeometry(50, 50, 50);
+	var geometry = new THREE.SphereGeometry(50, 50, 50);
 	var material = new THREE.MeshLambertMaterial({ color: 0x52ea7a, overdraw: 0.5 });
 
 	cube = new THREE.Mesh(geometry, material);
 	cube.position.x = -450;
 	cube.position.y = 150;
-	cube.position.z = 20;
+	cube.position.z = 50;
 	scene.add(cube);
 
+	//console.log(cube.position.x + " , " + cube.position.y + " , " + cube.position.z);
 
 	cube_2 = new THREE.Mesh(geometry, material);
 	cube_2.position.x = 450;
 	cube_2.position.y = 150;
-	cube_2.position.z = 20;
+	cube_2.position.z = 50;
 	//cube_2.rotation.z = Math.PI / 2;
 	scene.add(cube_2)
 
+	//console.log(cube_2.position.x + " , " + cube_2.position.y + " , " + cube_2.position.z);
 
 	//loading the car object
 	// load_object(scene, '../models/car1/model.obj')
@@ -157,7 +159,6 @@ function init() {
 				//controls.enableDamping = true;
 				//controls.dampingFactor = 0.25;
 	controls.enableZoom = false;
-	initCollision();
 
 	window.addEventListener('resize', onWindowResize, false);
 
