@@ -91,20 +91,20 @@ function init() {
 
 
 
-		var fence_1 = new THREE.BoxGeometry(500,800,200);
+		//var fence_1 = new THREE.BoxGeometry(500,800,200);
 
-		var material = new THREE.MeshLambertMaterial({color : 0X666666});
-        var mesh = new THREE.Mesh(fence_1,material);
+		//var material = new THREE.MeshLambertMaterial({color : 0X666666});
+        //var mesh = new THREE.Mesh(fence_1,material);
 
-		mesh.position.x = -50;
-		mesh.position.z = 100;
+		//mesh.position.x = -50;
+		//mesh.position.z = 100;
 
-		scene.add(mesh);
+		//scene.add(mesh);
 
 	// Cubes
 
 	var geometry = new THREE.SphereGeometry(50, 50, 50);
-	var material = new THREE.MeshLambertMaterial({ color: 0x52ea7a, overdraw: 0.5 });
+	var material = new THREE.MeshLambertMaterial({ color: 0xFF4081, overdraw: 0.5 });
 
 	cube = new THREE.Mesh(geometry, material);
 	cube.position.x = -450;
@@ -113,6 +113,8 @@ function init() {
 	scene.add(cube);
 
 	//console.log(cube.position.x + " , " + cube.position.y + " , " + cube.position.z);
+
+	var material = new THREE.MeshLambertMaterial({ color: 0xFDD835, overdraw: 0.5 });
 
 	cube_2 = new THREE.Mesh(geometry, material);
 	cube_2.position.x = 450;
