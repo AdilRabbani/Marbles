@@ -22,10 +22,17 @@ function animate() {
 	controls.update();
 	stats.begin();
 	// cube.translateX(accelaration);
-	cube.translateOnAxis ( movement.direction, accelaration )
+	if(!willCollideWall(cube, movement.direction, accelaration)){
+		cube.translateOnAxis ( movement.direction, accelaration )
+	}
+	else{
+		cube.translateOnAxis ( movement.direction, -accelaration*10 )
+		accelaration = 0;
+	}
 	movement.move();
+	
 	render();
-	console.log(update());
+	// console.log(update());
 	stats.end();
 
 }
