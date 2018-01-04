@@ -8,7 +8,7 @@ document.body.onkeyup = function (e) {
 	if (e.keyCode == 87) {
 		reduceAccel(100);
 	}
-	else if (e.keyCode == 83) {
+	if (e.keyCode == 83) {
 		increaseAccel(100);
 	}
 	pressedKeys[e.keyCode] = e.type == 'keydown';
