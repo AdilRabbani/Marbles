@@ -16,13 +16,13 @@ var movement = {
 		if (pressedKeys[87] && accelaration < 15) {
 			accelaration += 0.5;
 		}
-		else if (pressedKeys[83] && accelaration > -15) {
+		if (pressedKeys[83] && accelaration > -15) {
 			accelaration -= 0.5;
 		}
-		else if (pressedKeys[65]) {
+		if (pressedKeys[65]) {
 			movement.left();
 		}
-		else if (pressedKeys[68]) {
+		if (pressedKeys[68]) {
 			movement.right();
 		}
 
