@@ -5,16 +5,58 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
+
+			@font-face{
+				font-family:"Gentona_Heavy";
+				src:url(fonts/Gentona-Heavy.ttf);
+			}
+			
+			@font-face{
+				font-family:"Gentona_Thin";
+				src:url(fonts/Gentona-Thin.ttf);
+			}
+
+			@font-face{
+				font-family:"Zilla_Slab_Regular";
+				src:url(fonts/ZillaSlab-Regular.ttf);
+			}
+
+			@font-face{
+				font-family:"Zilla_Slab_Bold";
+				src:url(fonts/ZillaSlab-Bold.ttf);
+			}
+
 			body {
-				font-family: Monospace;
+				font-family: 'Zilla_Slab_Bold';
 				background-color: #f0f0f0;
 				margin: 0px;
 				overflow: hidden;
+				color: #000000;
 			}
+
+			canvas {
+				z-index:0;
+			}
+
+			#position {
+				z-index : 1;
+				position: fixed;
+				right:100px;
+				font-size:50px;
+				color: #37474F;
+			}
+
 		</style>
 	</head>
 	<body>
 
+		<div id="position">
+
+			<p>Position</p> <hr style="border:2px solid;margin-top:-55px;">
+			<p style="font-size:35px;font-family:'Zilla_Slab_Regular';margin-top:-20px;">Player 1</p>
+			<p style="font-size:35px;font-family:'Zilla_Slab_Regular';margin-top:-40px;">Player 2</p>
+
+		</div>
 		<canvas id="Carts" width="600" height="600"></canvas>
 
 		<script src="./libs/threejs/three.min.js"></script>

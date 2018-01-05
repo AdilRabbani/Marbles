@@ -91,25 +91,28 @@ function init() {
 
 
 
-		//var fence_1 = new THREE.BoxGeometry(500,800,200);
+		// var fence_1 = new THREE.BoxGeometry(500,800,200);
 
-		//var material = new THREE.MeshLambertMaterial({color : 0X666666});
-        //var mesh = new THREE.Mesh(fence_1,material);
+		// var material = new THREE.MeshLambertMaterial({color : 0X666666});
+        // var mesh = new THREE.Mesh(fence_1,material);
 
-		//mesh.position.x = -50;
-		//mesh.position.z = 100;
+		// mesh.position.x = -50;
+		// mesh.position.z = 100;
 
-		//scene.add(mesh);
+		// scene.add(mesh);
 
 	// Cubes
 
-	var geometry = new THREE.SphereGeometry(50, 50, 50);
+	var geometry = new THREE.SphereGeometry(30, 30, 30);
 	var material = new THREE.MeshLambertMaterial({ color: 0xFF4081, overdraw: 0.5 });
 
 	cube = new THREE.Mesh(geometry, material);
 	cube.position.x = -450;
-	cube.position.y = 150;
+	cube.position.y = -100;
 	cube.position.z = 50;
+
+	sphere_1 = new THREE.Sphere(cube.position,50);
+
 	scene.add(cube);
 
 	//console.log(cube.position.x + " , " + cube.position.y + " , " + cube.position.z);
@@ -117,11 +120,51 @@ function init() {
 	var material = new THREE.MeshLambertMaterial({ color: 0xFDD835, overdraw: 0.5 });
 
 	cube_2 = new THREE.Mesh(geometry, material);
-	cube_2.position.x = 450;
-	cube_2.position.y = 150;
+	cube_2.position.x = -650;
+	cube_2.position.y = -100;
 	cube_2.position.z = 50;
+
+	sphere_2 = new THREE.Sphere(cube_2.position,50);
+
 	//cube_2.rotation.z = Math.PI / 2;
-	scene.add(cube_2)
+	scene.add(cube_2);
+
+	var geometry = new THREE.BoxGeometry(600,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0xFFFFFF, overdraw: 0.5 });
+
+	checkpoint_1 = new THREE.Mesh(geometry, material);
+	checkpoint_1.position.x = -600;
+	
+	scene.add(checkpoint_1);
+
+	var geometry = new THREE.BoxGeometry(600,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0xFFFFFF, overdraw: 0.5 });
+
+	checkpoint_2 = new THREE.Mesh(geometry, material);
+	checkpoint_2.position.x = -50;
+	checkpoint_2.position.y = 700;
+	checkpoint_2.rotation.z = 90 * (Math.PI / 180);
+
+	scene.add(checkpoint_2);
+
+	var geometry = new THREE.BoxGeometry(600,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0xFFFFFF, overdraw: 0.5 });
+
+	checkpoint_3 = new THREE.Mesh(geometry, material);
+	checkpoint_3.position.x = 500;
+
+	scene.add(checkpoint_3);
+
+
+	var geometry = new THREE.BoxGeometry(600,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0xFFFFFF, overdraw: 0.5 });
+
+	checkpoint_4 = new THREE.Mesh(geometry, material);
+	checkpoint_4.position.x = -50;
+	checkpoint_4.position.y = -700;
+	checkpoint_4.rotation.z = 90 * (Math.PI / 180);
+
+	scene.add(checkpoint_4);
 
 	//console.log(cube_2.position.x + " , " + cube_2.position.y + " , " + cube_2.position.z);
 
@@ -129,6 +172,89 @@ function init() {
 	// load_object(scene, '../models/car1/model.obj')
 
 
+	var geometry = new THREE.BoxGeometry(800,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0x006064, overdraw: 0.5 });
+
+	fence_1 = new THREE.Mesh(geometry, material);
+	fence_1.position.x = -275;
+	fence_1.position.y = 0;
+	fence_1.rotation.z = 90 * (Math.PI / 180);
+
+	scene.add(fence_1);
+		
+	var geometry = new THREE.BoxGeometry(800,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0x006064, overdraw: 0.5 });
+
+	fence_1 = new THREE.Mesh(geometry, material);
+	fence_1.position.x = 175;
+	fence_1.position.y = 0;
+	fence_1.rotation.z = 90 * (Math.PI / 180);
+
+	scene.add(fence_1);
+
+
+	var geometry = new THREE.BoxGeometry(400,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0x006064, overdraw: 0.5 });
+
+	fence_1 = new THREE.Mesh(geometry, material);
+	fence_1.position.x = -50;
+	fence_1.position.y = 375;
+
+	scene.add(fence_1);
+
+	var geometry = new THREE.BoxGeometry(400,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0x006064, overdraw: 0.5 });
+
+	fence_1 = new THREE.Mesh(geometry, material);
+	fence_1.position.x = -50;
+	fence_1.position.y = -375;
+
+	scene.add(fence_1);
+
+
+
+
+
+	var geometry = new THREE.BoxGeometry(2000,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0x006064, overdraw: 0.5 });
+
+	fence_1 = new THREE.Mesh(geometry, material);
+	fence_1.position.x = -920;
+	fence_1.position.y = 0;
+	fence_1.rotation.z = 90 * (Math.PI / 180);
+
+	scene.add(fence_1);
+
+
+	var geometry = new THREE.BoxGeometry(2000,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0x006064, overdraw: 0.5 });
+
+	fence_1 = new THREE.Mesh(geometry, material);
+	fence_1.position.x = 820;
+	fence_1.position.y = 0;
+	fence_1.rotation.z = 90 * (Math.PI / 180);
+
+	scene.add(fence_1);
+
+	var geometry = new THREE.BoxGeometry(1790,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0x006064, overdraw: 0.5 });
+
+	fence_1 = new THREE.Mesh(geometry, material);
+	fence_1.position.x = -50;
+	fence_1.position.y = 1020;
+
+	scene.add(fence_1);
+
+	var geometry = new THREE.BoxGeometry(1790,50,50);
+	var material = new THREE.MeshLambertMaterial({ color: 0x006064, overdraw: 0.5 });
+
+	fence_1 = new THREE.Mesh(geometry, material);
+	fence_1.position.x = -50;
+	fence_1.position.y = -1020;
+
+	scene.add(fence_1);
+
+	/////////////////////////////////////////////////////
 
 	stats = new Stats();
 	container.appendChild(stats.dom);
