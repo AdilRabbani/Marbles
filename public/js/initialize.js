@@ -10,7 +10,7 @@ function init() {
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
 	scene = new THREE.Scene();
-	scene.background = new THREE.Color(0xf0f0f0);
+	scene.background = new THREE.Color(0xCFD8DC);
 
 	var aspect = window.innerWidth / window.innerHeight;
 

@@ -2,6 +2,12 @@ var pressedKeys = [];
 
 document.body.onkeydown = function (e) {
 	pressedKeys[e.keyCode] = e.type == 'keydown';
+
+	if (e.keyCode == 13)
+	{
+		menu.style.display = "none";
+	}
+
 };
 
 document.body.onkeyup = function (e) {
@@ -11,6 +17,7 @@ document.body.onkeyup = function (e) {
 	if (e.keyCode == 73) {
 		reduceAccel2(100);
 	}
+	
 	pressedKeys[e.keyCode] = e.type == 'keydown';
 };
 

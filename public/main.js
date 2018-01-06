@@ -40,6 +40,8 @@ var p2_position = document.getElementById("p2_position");
 var reddiv = document.getElementById("reddiv");
 var bluediv = document.getElementById("bluediv");
 
+var menu = document.getElementById("menu");
+
 var trail_1;
 
 init();
@@ -85,10 +87,10 @@ function animate() {
 
 	//  chasingTrail();
 
-	//checkPoint1_Collision_2();
-	//checkPoint2_Collision_2();
-	//checkPoint3_Collision_2();
-	//checkPoint4_Collision_2();
+	checkPoint1_Collision_2();
+	checkPoint2_Collision_2();
+	checkPoint3_Collision_2();
+	checkPoint4_Collision_2();
 	stats.end();
 
 }
