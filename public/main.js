@@ -19,10 +19,24 @@ var checkBox_2;
 var checkBox_3;
 var checkBox_4;
 
-var currentCheckpoint = 1;
-var previousCheckpoint = 0;
+var currentCheckpoint_Player1 = 1;
+var previousCheckpoint_Player1 = 0;
+
+var currentCheckpoint_Player2 = 1;
+var previousCheckpoint_Player2 = 0;
+
+var checkPointCounter_Player1 = 0;
+var checkPointCounter_Player2 = 0;
+
+var player_1_position = 1;
+var player_2_position = 2; 
 
 var controls;
+
+var p1_position = document.getElementById("p1_position");
+var p2_position = document.getElementById("p2_position");
+
+var trail_1;
 
 init();
 animate();
@@ -38,21 +52,31 @@ function animate() {
 	controls.update();
 	stats.begin();
 	// cube.translateX(accelaration);
-	if(!willCollideWall(cube, movement.direction, accelaration)){
-		cube.translateOnAxis ( movement.direction, accelaration )
-	}
-	else{
+//	if(!willCollideWall(cube, movement.direction, accelaration)){
+//		cube.translateOnAxis ( movement.direction, accelaration )
+//	}
+//	else{
 		cube.translateOnAxis ( movement.direction, -accelaration*10 )
 		accelaration = 0;
-	}
+//	}
 	movement.move();
 	
 	render();
 	//console.log(update());
+
+	calculatePosition();
+
 	checkPoint1_Collision();
 	checkPoint2_Collision();
 	checkPoint3_Collision();
 	checkPoint4_Collision();
+
+	// chasingTrail();
+
+	//checkPoint1_Collision_2();
+	//checkPoint2_Collision_2();
+	//checkPoint3_Collision_2();
+	//checkPoint4_Collision_2();
 	stats.end();
 
 }

@@ -29,8 +29,22 @@ function init() {
 
 	var ambient = new THREE.AmbientLight(0xffffff, 1);
 	scene.add(ambient);
-	var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
-	scene.add( directionalLight );
+	// var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+	// scene.add( directionalLight );
+
+	light = new THREE.DirectionalLight( 0xdfebff, 1 );
+	light.position.set( 50, 200, 100 );
+	light.position.multiplyScalar( 1.3 );
+	light.castShadow = true;
+	light.shadow.mapSize.width = 1024;
+	light.shadow.mapSize.height = 1024;
+	var d = 300;
+	light.shadow.camera.left = - d;
+	light.shadow.camera.right = d;
+	light.shadow.camera.top = d;
+	light.shadow.camera.bottom = - d;
+	light.shadow.camera.far = 1000;
+	scene.add( light );
 
 
 	// Floor
@@ -111,6 +125,9 @@ function init() {
 	cube.position.y = -100;
 	cube.position.z = 50;
 
+	cube.castShadow = true;
+	cube.receiveShadow = true;
+
 	sphere_1 = new THREE.Sphere(cube.position,50);
 
 	scene.add(cube);
@@ -124,10 +141,38 @@ function init() {
 	cube_2.position.y = -100;
 	cube_2.position.z = 50;
 
+	cube_2.castShadow = true;
+	cube_2.receiveShadow = true;
+
 	sphere_2 = new THREE.Sphere(cube_2.position,50);
 
 	//cube_2.rotation.z = Math.PI / 2;
 	scene.add(cube_2);
+
+
+	///////////////////////////////////////////////////////
+
+		// Trail Experiment
+
+	// var geometry = new THREE.SphereGeometry(8, 8, 8);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFFFFFF, overdraw: 0.5 });
+
+	// trail_1 = new THREE.Mesh(geometry, material);
+
+	// trail_1.position.set(cube.position.x,cube.position.y,cube.position.z);
+	// trail_1.position.y = -150;
+
+	// scene.add(trail_1);
+
+
+	// console.log(trail_1.position.z); 
+
+
+
+
+	//////////////////////////////////////////////////////
+
+
 
 	var geometry = new THREE.BoxGeometry(600,50,50);
 	var material = new THREE.MeshLambertMaterial({ color: 0xFFFFFF, overdraw: 0.5 });
@@ -267,5 +312,245 @@ function init() {
 	controls.enableZoom = false;
 
 	window.addEventListener('resize', onWindowResize, false);
+
+
+	///////////////////////////
+
+
+	//////////////////////////////////////////////////////////////////////////////////
+
+	// var geometry = new THREE.SphereGeometry(20,50,50);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFF0000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -280;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,50,50);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFF0000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -920;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,50,50);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFF0000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -600;
+	// ball.position.z = 80;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,50,50);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFF0000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -600;
+	// ball.position.z = -50;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x770000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -600;
+	// ball.position.y = -40;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x770000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -600;
+	// ball.position.y = 40;
+	
+	// scene.add(ball);
+
+
+	// ////////////////////////////////////////////////////
+
+
+	// //////////////////////////////////////////////////////////////////////////////////
+
+	// var geometry = new THREE.SphereGeometry(20,50,50);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFF0000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = 200;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,50,50);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFF0000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = 800;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,50,50);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFF0000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = 500;
+	// ball.position.z = 50;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,50,50);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFF0000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = 500;
+	// ball.position.z = -50;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x770000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = 400;
+	// ball.position.y = -40;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x770000, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = 400;
+	// ball.position.y = 40;
+	
+	// scene.add(ball);
+
+
+	// ////////////////////////////////////////////////////
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x00FFFF, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -50;
+	// ball.position.y = 390;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x00FFFF, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -50;
+	// ball.position.y = 1000;
+	
+	// scene.add(ball);
+
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFFFF00, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -50;
+	// ball.position.y = 700;
+	// ball.position.z = 50;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFFFF00, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -50;
+	// ball.position.y = 700;
+	// ball.position.z = -50;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x00FF00, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -20;
+	// ball.position.y = 700;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x00FF00, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -80;
+	// ball.position.y = 700;
+	
+	// scene.add(ball);
+
+
+	// ///////////////////////////////////////////////// checkpoint 4
+
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x00FFFF, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -50;
+	// ball.position.y = -390;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x00FFFF, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -50;
+	// ball.position.y = -1000;
+	
+	// scene.add(ball);
+
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFFFF00, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -50;
+	// ball.position.y = -700;
+	// ball.position.z = 50;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0xFFFF00, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -50;
+	// ball.position.y = -700;
+	// ball.position.z = -50;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x00FF00, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -20;
+	// ball.position.y = -700;
+	
+	// scene.add(ball);
+
+	// var geometry = new THREE.SphereGeometry(20,30,30);
+	// var material = new THREE.MeshLambertMaterial({ color: 0x00FF00, overdraw: 0.5 });
+
+	// ball = new THREE.Mesh(geometry, material);
+	// ball.position.x = -80;
+	// ball.position.y = -700;
+	
+	// scene.add(ball);
+
+
+
 
 }
