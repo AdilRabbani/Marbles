@@ -36,6 +36,9 @@ var controls;
 var p1_position = document.getElementById("p1_position");
 var p2_position = document.getElementById("p2_position");
 
+var reddiv = document.getElementById("reddiv");
+var bluediv = document.getElementById("bluediv");
+
 var trail_1;
 
 init();
@@ -71,7 +74,7 @@ function animate() {
 	checkPoint3_Collision();
 	checkPoint4_Collision();
 
-	// chasingTrail();
+	//  chasingTrail();
 
 	//checkPoint1_Collision_2();
 	//checkPoint2_Collision_2();

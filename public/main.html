@@ -39,19 +39,63 @@
 			}
 
 			#position {
-				z-index : 1;
+				z-index : 2;
 				position: fixed;
 				right:100px;
 				font-size:50px;
 				color: #37474F;
 
+				text-align : center;
+
 				-moz-border-radius: 0;
 				-webkit-border-radius: 0;
 				border-radius: 0;
-				-moz-transition: all 0.3s ease-in-out;
-				-o-transition: all 0.3s ease-in-out;
-				-webkit-transition: all 0.3s ease-in-out;
-				transition: all 0.3s ease-in-out;
+				-moz-transition: all 0.5s ease-in-out;
+				-o-transition: all 0.5s ease-in-out;
+				-webkit-transition: all 0.5s ease-in-out;
+				transition: all 0.5s ease-in-out;
+			}
+
+			#reddiv {
+				z-index : 1;
+				font-size:50px;
+				color: white;
+				background-color:#F44336;
+
+				text-align:center;
+				
+				margin-top:-20px;
+				width:200px;
+				height:50px;
+
+				-moz-border-radius: 0;
+				-webkit-border-radius: 0;
+				border-radius: 0;
+				-moz-transition: all 0.5s ease-in-out;
+				-o-transition: all 0.5s ease-in-out;
+				-webkit-transition: all 0.5s ease-in-out;
+				transition: all 0.5s ease-in-out;
+			}
+
+			#bluediv {
+				z-index : 1;
+				font-size:50px;
+				color: white;
+				background-color:#1565C0;
+				
+				margin-top:-20px;
+				width:200px;
+				height:50px;
+
+				text-align : center;
+
+				-moz-border-radius: 0;
+				-webkit-border-radius: 0;
+				border-radius: 0;
+				-moz-transition: all 0.5s ease-in-out;
+				-o-transition: all 0.5s ease-in-out;
+				-webkit-transition: all 0.5s ease-in-out;
+				transition: all 0.5s ease-in-out;
 			}
 
 		</style>
@@ -61,8 +105,8 @@
 		<div id="position">
 
 			<p>Position</p> <hr style="border:2px solid;margin-top:-55px;">
-			<p style="font-size:35px;font-family:'Zilla_Slab_Regular';margin-top:-20px;">Player 1 <span style="font-size:30px;font-family:'Zilla_Slab_Bold';" id="p1_position">1<sup>st</sup></span></p>
-			<p style="font-size:35px;font-family:'Zilla_Slab_Regular';margin-top:-40px;">Player 2 <span style="font-size:30px;font-family:'Zilla_Slab_Bold';" id="p2_position">2<sup>nd</sup></span></p>
+			<div id="bluediv"><p style="font-size:35px;font-family:'Zilla_Slab_Regular';">Player 1 <span style="font-size:30px;font-family:'Zilla_Slab_Bold';" id="p1_position">1<sup>st</sup></span></p></div>
+			<div id="reddiv"><p style="font-size:35px;font-family:'Zilla_Slab_Regular';">Player 2 <span style="font-size:30px;font-family:'Zilla_Slab_Bold';" id="p2_position">2<sup>nd</sup></span></p></div>
 
 		</div>
 		<canvas id="Carts" width="600" height="600"></canvas>
