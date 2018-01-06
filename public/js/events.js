@@ -5,7 +5,13 @@ document.body.onkeydown = function (e) {
 
 	if (e.keyCode == 13)
 	{
-		menu.style.display = "none";
+		$(document).ready(function(){ 
+            	
+			$('#menu').fadeOut(500);
+			lap_set.style.display = "inline";
+
+		});
+
 	}
 
 };
@@ -67,4 +73,35 @@ function onWindowResize() {
 
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
+}
+
+$(document).ready(function(){ 
+            
+    $("#lapbutton").click(function () {
+        
+		$('#lap').fadeOut(300);
+		numberOfLaps = lapinput.value;
+		lapsNumber1.innerHTML = numberOfLaps;
+		lapsNumber2.innerHTML = numberOfLaps;
+        start_game = true; 
+		music.play(); 
+        
+    });
+
+});
+
+function finishedFunc()
+{
+	$("#finished").fadeIn(500);
+	
+	if (player1Laps > numberOfLaps)
+	{
+		winner.innerHTML = "<div style='color:white;background-color:#FF4081;height:50px;margin-top:10px;'>Player 1 Wins!</div>";
+	}
+
+	else {
+		winner.innerHTML = "<div style='color:white;background-color:#FDD835;height:50px;margin-top:10px;'>Player 2 Wins!</div>";
+	}
+	
+	start_game = false;
 }

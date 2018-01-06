@@ -269,6 +269,18 @@ function checkPoint1_Collision()
 			checkpoint_4.material.color.setHex(0xFFFFFF);
 
 			checkPointCounter_Player1 = checkPointCounter_Player1 + 1;
+
+			player1Laps = player1Laps + 1;
+
+			if (player1Laps > numberOfLaps)
+			{
+				finishedFunc();
+			}
+
+			else {
+				player1Lapshtml.innerHTML = player1Laps;
+			}
+
 		}
 
 	 }
@@ -498,6 +510,18 @@ function checkPoint1_Collision_2()
 			checkpoint_4.material.color.setHex(0xFFFFFF);
 
 			checkPointCounter_Player2 = checkPointCounter_Player2 + 1;
+
+			player2Laps = player2Laps + 1;
+
+			if (player2Laps > numberOfLaps)
+			{
+				finishedFunc();
+			}
+
+			else {
+				player2Lapshtml.innerHTML = player2Laps;
+			}
+
 		}
 
 	 }
