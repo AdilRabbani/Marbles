@@ -61,3 +61,23 @@ function onWindowResize() {
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
 }
+
+//code for sockets
+
+var socket = io();
+var player = "player2";
+socket.on('FirstCome', function (data) {
+	player = "player1";
+});
+socket.on('player1', function (data) {
+	pressedKeys[73] = data[87];
+	pressedKeys[75] = data[83];
+	pressedKeys[74] = data[65];
+	pressedKeys[76] = data[68];
+});
+socket.on('player2', function (data) {
+	pressedKeys[73] = data[87];
+	pressedKeys[75] = data[83];
+	pressedKeys[74] = data[65];
+	pressedKeys[76] = data[68];
+});
