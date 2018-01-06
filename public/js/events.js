@@ -9,23 +9,23 @@ document.body.onkeyup = function (e) {
 		reduceAccel(100);
 	}
 	if (e.keyCode == 73) {
-		reduceAccel(100);
+		reduceAccel2(100);
 	}
 	pressedKeys[e.keyCode] = e.type == 'keydown';
 };
 
 function reduceAccel(index) {
 	if (index > 0 && accelaration > 0) {
+		accelaration -= 0.1;
 		setTimeout(function () {
-			accelaration -= 0.1;
 			reduceAccel(index--);
 		}, 10)
 	}
 }
 function increaseAccel(index) {
 	if (index > 0 && accelaration < 0) {
+		accelaration += 0.1;
 		setTimeout(function () {
-			accelaration += 0.1;
 			increaseAccel(index--);
 		}, 10)
 	}
@@ -34,7 +34,7 @@ function reduceAccel2(index) {
 	if (index > 0 && accelaration2 > 0) {
 		setTimeout(function () {
 			accelaration2 -= 0.1;
-			reduceAccel(index--);
+			reduceAccel2(index--);
 		}, 10)
 	}
 }
