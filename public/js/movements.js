@@ -14,10 +14,10 @@ var movement = {
 	},
 	move: function () {
 		if (pressedKeys[87] && accelaration < 15) {
-			accelaration += 0.5;
+			accelaration += 1;
 		}
 		if (pressedKeys[83] && accelaration > -15) {
-			accelaration -= 0.5;
+			accelaration -= 1;
 		}
 		if (pressedKeys[65]) {
 			movement.left();
