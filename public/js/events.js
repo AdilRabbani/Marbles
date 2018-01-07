@@ -1,6 +1,6 @@
 var pressedKeys = [];
-
 var socket = io();
+var second_player_start_game = false;
 
 
 document.body.onkeydown = function (e) {
@@ -16,7 +16,10 @@ document.body.onkeydown = function (e) {
 			}
 
 		});
-
+		socket.emit('secondUserStarted');
+		if(second_player_start_game){
+			start_game = true;
+		}
 	}
 
 };
@@ -120,8 +123,7 @@ function finishedFunc() {
 
 socket.on('secondUser', function(data){
 	console.log("Second user is connected");
-	waiting.style.display = "none";
-	start_game = true;
+	
 })
 
 socket.on('IamSecond', function(data){
@@ -129,9 +131,13 @@ socket.on('IamSecond', function(data){
 	waiting.style.display = "none";
 	$('#lap').fadeOut(300);
 	numberOfLaps = data;
-	console.log(numberOfLaps)
 	lapsNumber1.innerHTML = numberOfLaps;
 	lapsNumber2.innerHTML = numberOfLaps;
 	music.play();
-	start_game = true;
+	second_player_start_game = true;
 });
+
+socket.on("secondUserStarted", function(data){
+	waiting.style.display = "none";
+	start_game = true;
+})

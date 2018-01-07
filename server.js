@@ -22,6 +22,9 @@ io.on('connection', function (socket) {
 	socket.on('updatedPosition', function (data) {
 		socket.broadcast.emit('updatedPosition', data);
 	});
+	socket.on('secondUserStarted', function (data) {
+		socket.broadcast.emit('secondUserStarted', data);
+	});
 	socket.on('noOfLaps', function (data) {
 		numberOfLaps = data;
 	});
