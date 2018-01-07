@@ -16,7 +16,8 @@ server.listen(3000)
 io.on('connection', function (socket) {
 	connectCounter++;
 	if(connectCounter > 1){
-		socket.emit("secondUser");	
+		socket.broadcast.emit("secondUser");
+		socket.emit("IamSecond");
 	}
 	socket.on('updatedPosition', function (data) {
 		socket.broadcast.emit('updatedPosition', data);

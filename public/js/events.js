@@ -118,3 +118,7 @@ function finishedFunc() {
 socket.on('secondUser', function(data){
 	console.log("Second user is connected");
 })
+
+socket.on('IamSecond', function(data){
+	console.log("I'm second player");
+})
