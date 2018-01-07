@@ -1,7 +1,7 @@
 var pressedKeys = [];
 var socket = io();
 var second_player_start_game = false;
-
+var player2name = "";
 
 document.body.onkeydown = function (e) {
 	pressedKeys[e.keyCode] = e.type == 'keydown';
@@ -16,6 +16,9 @@ document.body.onkeydown = function (e) {
 			}
 
 		});
+		playername = $("#nameinput").val();
+		socket.emit('playername', playername);
+		$("#player1name").html(playername);
 		socket.emit('secondUserStarted');
 		if(second_player_start_game){
 			countDown(3);
@@ -89,7 +92,6 @@ socket.on('updatedPosition', function (data) {
 	cube_2.position.x = data.position.x;
 	cube_2.position.y = data.position.y;
 	cube_2.position.z = data.position.z;
-	console.log(data.position)
 });
 
 $(document).ready(function () {
@@ -147,6 +149,9 @@ function countDown(count){
 
 socket.on('secondUser', function(data){
 	console.log("Second user is connected");
+	playername = $("#nameinput").val();
+	socket.emit('playername', playername);
+	$("#player1name").html(playername);
 	
 })
 
@@ -164,4 +169,7 @@ socket.on('IamSecond', function(data){
 socket.on("secondUserStarted", function(data){
 	waiting.style.display = "none";
 	countDown(3);
+})
+socket.on("playername", function(data){
+	$("#player2name").html(data);
 })

@@ -25,6 +25,9 @@ io.on('connection', function (socket) {
 	socket.on('secondUserStarted', function (data) {
 		socket.broadcast.emit('secondUserStarted', data);
 	});
+	socket.on('playername', function (data) {
+		socket.broadcast.emit('playername', data);
+	});
 	socket.on('noOfLaps', function (data) {
 		numberOfLaps = data;
 	});
