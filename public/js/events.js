@@ -7,22 +7,34 @@ document.body.onkeydown = function (e) {
 	pressedKeys[e.keyCode] = e.type == 'keydown';
 
 	if (e.keyCode == 13) {
-		$(document).ready(function () {
 
-			$('#menu').fadeOut(500);
-			if (waiting.style.display != "none"){
-				waiting.style.display = "inline";
-				lap_set.style.display = "inline";
+		if ($("#nameinput").val().length > 0) {
+
+			$(document).ready(function () {
+
+
+
+				$('#menu').fadeOut(500);
+				if (waiting.style.display != "none") {
+					waiting.style.display = "inline";
+					lap_set.style.display = "inline";
+				}
+
+
+
+			});
+
+			var playername = $("#nameinput").val();
+			socket.emit('playername', playername);
+			$("#player1name , #player1lapname").html(playername);
+			socket.emit('secondUserStarted');
+
+			if (second_player_start_game) {
+				countDown(3);
 			}
 
-		});
-		playername = $("#nameinput").val();
-		socket.emit('playername', playername);
-		$("#player1name").html(playername);
-		socket.emit('secondUserStarted');
-		if(second_player_start_game){
-			countDown(3);
 		}
+
 	}
 
 };
@@ -113,49 +125,48 @@ function finishedFunc() {
 	$("#finished").fadeIn(500);
 
 	if (player1Laps > numberOfLaps) {
-		winner.innerHTML = "<div style='color:white;background-color:#FF4081;height:50px;margin-top:10px;'>Player 1 Wins!</div>";
+		winner.innerHTML = "<div style='color:white;background-color:#FF4081;height:50px;margin-top:10px;'>" + $("#nameinput").val() + " Wins!</div>";
 	}
 
 	else {
-		winner.innerHTML = "<div style='color:white;background-color:#FDD835;height:50px;margin-top:10px;'>Player 2 Wins!</div>";
+		winner.innerHTML = "<div style='color:white;background-color:#FDD835;height:50px;margin-top:10px;'>" + player2name + " Wins!</div>";
 	}
 
 	start_game = false;
 }
 
 
-function countDown(count){
+function countDown(count) {
 	countdown.style.display = "inline";
 
-	if (count < 0)
-	{
+	if (count < 0) {
 		countdown.style.display = "none";
 	}
 
-	else if(count == 0){
+	else if (count == 0) {
 		start_game = true;
 		count_down.innerHTML = "<p class='animated bounce'>GO!</p>";
-		setTimeout(function(){
+		setTimeout(function () {
 			countDown(--count);
 		}, 2000);
 	}
-	else{
+	else {
 		count_down.innerHTML = "<p class='animated bounce'>" + count + "</p>"
-		setTimeout(function(){
+		setTimeout(function () {
 			countDown(--count);
 		}, 2000);
 	}
 }
 
-socket.on('secondUser', function(data){
+socket.on('secondUser', function (data) {
 	console.log("Second user is connected");
-	playername = $("#nameinput").val();
+	var playername = $("#nameinput").val();
 	socket.emit('playername', playername);
-	$("#player1name").html(playername);
-	
+	$("#player1name, #player1lapname").html(playername);
+
 })
 
-socket.on('IamSecond', function(data){
+socket.on('IamSecond', function (data) {
 	console.log("I'm second player");
 	waiting.style.display = "none";
 	$('#lap').fadeOut(300);
@@ -166,10 +177,11 @@ socket.on('IamSecond', function(data){
 	second_player_start_game = true;
 });
 
-socket.on("secondUserStarted", function(data){
+socket.on("secondUserStarted", function (data) {
 	waiting.style.display = "none";
 	countDown(3);
 })
-socket.on("playername", function(data){
-	$("#player2name").html(data);
+socket.on("playername", function (data) {
+	$("#player2name, #player2lapname").html(data);
+	player2name = data;
 })

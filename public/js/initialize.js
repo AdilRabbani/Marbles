@@ -299,10 +299,6 @@ function init() {
 	fence_1.position.y = -1020;
 
 	scene.add(fence_1);
-	var jsonLoader = new THREE.JSONLoader();
-	jsonLoader.load("../models/car3/_on.js", function (geometry) {
-		var mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial() );
-		scene.add(mesh) });
 
 	/////////////////////////////////////////////////////
 
