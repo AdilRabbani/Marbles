@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>BALLS - A Game By Mohsin Ammar and Adil Rabbani</title>
+		<title>Marbles - A Game By Mohsin Ammar and Adil Rabbani</title>
 		<link rel="icon" href="images/golf-ball.png">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -169,6 +169,17 @@
 				display : none;
 			}
 
+			#countdown {
+				z-index : 3;
+				position : fixed;
+				color : #37474F;
+				top : 15%;
+				left : 15%;
+				display:none;
+				text-align : center;
+				font-size:50px;
+			}
+
 			#lapinput {
 				border: none;
 				background: transparent;
@@ -176,6 +187,17 @@
 				font-size:25px;
 				text-align : center;
 				margin-top:-30px;
+				font-family:'Zilla_Slab_Bold';
+				height:30px;
+				color : #37474F;
+			}
+
+			#nameinput {
+				border: none;
+				background: transparent;
+				border-bottom: 2px solid #37474F;
+				font-size:25px;
+				text-align : center;
 				font-family:'Zilla_Slab_Bold';
 				height:30px;
 				color : #37474F;
@@ -236,25 +258,31 @@
 
 			<p class="animated bounceInLeft">Finished!</p>
 			<p id="winner" class="animated bounceInLeft" style="font-size:30px;margin-top:-40px;"></p>
-			<input type="image" src="images/two-circling-arrows.svg" width="35%" height="35%" class="animated bounceInLeft" id="race_again">
+			<!--<input type="image" src="images/two-circling-arrows.svg" width="35%" height="35%" class="animated bounceInLeft" id="race_again">-->
 
 		</div>
 
 		<div id="waiting">
 
 			<p class="animted bounceInLeft">Waiting for second player...</p>
-			<!--<p class="animted bounceInLeft" style="margin-top:-20px;">Second Player connected!</p>-->
 
 		</div>
 
 
 		<div id="menu">
 			
-			 <p style="font-size:120px;color:#37474F;text-align:center;" class="animated fadeInDown">BALLS</p>
+			 <p style="font-size:120px;color:#37474F;text-align:center;" class="animated fadeInDown">MARBLES</p>
 			 <center><div style="margin-top:-110px;margin-top:-140px;" class="animated fadeInRight"><img src="images/golf-ball.svg" width="15%" height="15%"></div></center>
-			 <p style="font-size:50px;color:#37474F;text-align:center;margin-top:5px;" class="animated fadeInUp">Press <span style="font-size:60px;">'Enter'</span> to <span style="font-size:60px;">play!<span></p>
+			 <center><span style="font-size:40px;color:#37474F;">Your name : </span><input id="nameinput" class="animated fadeInLeft"></center>
+			 <p style="font-size:50px;color:#37474F;text-align:center;margin-top:5px;" class="animated fadeInUp">Press <span style="font-size:60px;">'Enter'</span> to <span style="font-size:60px;">play!</span></p>
 			 
 		</div> 
+
+		<div id="countdown">
+
+			<p id="count_down" class="animated bounce"></p>
+
+		</div>
 
 		<div id="lap" class="animated fadeInLeft">
 			

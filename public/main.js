@@ -58,6 +58,9 @@ var winner = document.getElementById("winner");
 
 var waiting = document.getElementById("waiting");
 
+var countdown = document.getElementById("countdown");
+var count_down = document.getElementById("count_down");
+
 var player1Laps = 0;
 var player2Laps = 0;
 

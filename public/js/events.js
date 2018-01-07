@@ -123,14 +123,25 @@ function finishedFunc() {
 
 
 function countDown(count){
-	if(count <= 0){
-		start_game = true;
+	countdown.style.display = "inline";
+
+	if (count < 0)
+	{
+		countdown.style.display = "none";
 	}
-	else{
-		console.log(count);
+
+	else if(count == 0){
+		start_game = true;
+		count_down.innerHTML = "<p class='animated bounce'>GO!</p>";
 		setTimeout(function(){
 			countDown(--count);
-		}, 1000)
+		}, 2000);
+	}
+	else{
+		count_down.innerHTML = "<p class='animated bounce'>" + count + "</p>"
+		setTimeout(function(){
+			countDown(--count);
+		}, 2000);
 	}
 }
 
