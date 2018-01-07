@@ -60,16 +60,16 @@ function animate() {
 		cube.translateOnAxis ( movement.direction, -accelaration*10 )
 		accelaration = 0;
 	}
-	if(!willCollideWall(cube_2, movement2.direction, accelaration2)){
-		cube_2.translateOnAxis ( movement2.direction, accelaration2 )
-	}
-	else{
-		cube_2.translateOnAxis ( movement2.direction, -accelaration2*10 )
-		accelaration2 = 0;
-	}
+	// if(!willCollideWall(cube_2, movement2.direction, accelaration2)){
+	// 	cube_2.translateOnAxis ( movement2.direction, accelaration2 )
+	// }
+	// else{
+	// 	cube_2.translateOnAxis ( movement2.direction, -accelaration2*10 )
+	// 	accelaration2 = 0;
+	// }
 	movement.move();
-	movement2.move();
-	
+	// movement2.move();
+	socket.emit('updatedPosition', {position: cube.position});
 	render();
 	//console.log(update());
 
