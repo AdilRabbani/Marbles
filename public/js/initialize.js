@@ -121,7 +121,7 @@ function init() {
 	var material = new THREE.MeshLambertMaterial({ color: 0xFF4081, overdraw: 0.5 });
 
 	cube = new THREE.Mesh(geometry, material);
-	cube.position.x = -450;
+	cube.position.x = -(Math.floor(Math.random() * ((850-350)+1) + 350));
 	cube.position.y = -100;
 	cube.position.z = 50;
 
