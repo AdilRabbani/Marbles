@@ -114,3 +114,7 @@ function finishedFunc() {
 
 	start_game = false;
 }
+
+socket.on('secondUser', function(data){
+	console.log("Second user is connected");
+})
