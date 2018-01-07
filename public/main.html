@@ -90,6 +90,18 @@
 				display:none;
 			}
 
+			#waiting {
+				z-index : 2;
+				position : fixed;
+				left : 60px;
+				top : 350px;
+				text-align : center;
+				color: #37474F;
+				font-size:25px;
+
+				display : none;
+			}
+
 			#reddiv {
 				z-index : 1;
 				font-size:50px;
@@ -225,6 +237,13 @@
 			<p class="animated bounceInLeft">Finished!</p>
 			<p id="winner" class="animated bounceInLeft" style="font-size:30px;margin-top:-40px;"></p>
 			<input type="image" src="images/two-circling-arrows.svg" width="35%" height="35%" class="animated bounceInLeft" id="race_again">
+
+		</div>
+
+		<div id="waiting">
+
+			<p class="animted bounceInLeft">Waiting for second player...</p>
+			<!--<p class="animted bounceInLeft" style="margin-top:-20px;">Second Player connected!</p>-->
 
 		</div>
 

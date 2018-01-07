@@ -10,7 +10,10 @@ document.body.onkeydown = function (e) {
 		$(document).ready(function () {
 
 			$('#menu').fadeOut(500);
-			lap_set.style.display = "inline";
+			if (waiting.style.display != "none"){
+				waiting.style.display = "inline";
+				lap_set.style.display = "inline";
+			}
 
 		});
 
@@ -94,7 +97,6 @@ $(document).ready(function () {
 		numberOfLaps = lapinput.value;
 		lapsNumber1.innerHTML = numberOfLaps;
 		lapsNumber2.innerHTML = numberOfLaps;
-		start_game = true;
 		music.play();
 
 	});
@@ -117,8 +119,17 @@ function finishedFunc() {
 
 socket.on('secondUser', function(data){
 	console.log("Second user is connected");
+	waiting.style.display = "none";
+	start_game = true;
 })
 
 socket.on('IamSecond', function(data){
 	console.log("I'm second player");
+	waiting.style.display = "none";
+	$('#lap').fadeOut(300);
+	numberOfLaps = 1;
+	lapsNumber1.innerHTML = numberOfLaps;
+	lapsNumber2.innerHTML = numberOfLaps;
+	music.play();
+	start_game = true;
 })

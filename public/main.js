@@ -56,6 +56,8 @@ var player2Lapshtml = document.getElementById("player2Laps");
 
 var winner = document.getElementById("winner");
 
+var waiting = document.getElementById("waiting");
+
 var player1Laps = 0;
 var player2Laps = 0;
 
