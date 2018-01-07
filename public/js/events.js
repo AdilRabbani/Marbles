@@ -18,7 +18,7 @@ document.body.onkeydown = function (e) {
 		});
 		socket.emit('secondUserStarted');
 		if(second_player_start_game){
-			start_game = true;
+			countDown(3);
 		}
 	}
 
@@ -121,6 +121,19 @@ function finishedFunc() {
 	start_game = false;
 }
 
+
+function countDown(count){
+	if(count <= 0){
+		start_game = true;
+	}
+	else{
+		console.log(count);
+		setTimeout(function(){
+			countDown(--count);
+		}, 1000)
+	}
+}
+
 socket.on('secondUser', function(data){
 	console.log("Second user is connected");
 	
@@ -139,5 +152,5 @@ socket.on('IamSecond', function(data){
 
 socket.on("secondUserStarted", function(data){
 	waiting.style.display = "none";
-	start_game = true;
+	countDown(3);
 })
