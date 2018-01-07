@@ -37,11 +37,39 @@ var controls;
 var p1_position = document.getElementById("p1_position");
 var p2_position = document.getElementById("p2_position");
 
+var reddiv = document.getElementById("reddiv");
+var bluediv = document.getElementById("bluediv");
+
+var menu = document.getElementById("menu");
+var lap_set = document.getElementById("lap");
+
+var lapinput = document.getElementById("lapinput");
+var numberOfLaps = 0;
+
+var lapsNumber1 = document.getElementById("lapsNumber1");
+var lapsNumber2 = document.getElementById("lapsNumber2");
+
+var music = new Audio('sound/happy.mp3');
+
+var player1Lapshtml = document.getElementById("player1Laps");
+var player2Lapshtml = document.getElementById("player2Laps");
+
+var winner = document.getElementById("winner");
+
+var player1Laps = 0;
+var player2Laps = 0;
+
 var trail_1;
+
+var start_game = false;
 
 init();
 animate();
 
+music.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
 
 
 //
@@ -49,6 +77,8 @@ animate();
 function animate() {
 
 	requestAnimationFrame(animate);
+
+	if (start_game){
 
 	controls.update();
 	stats.begin();
@@ -71,6 +101,8 @@ function animate() {
 	// movement2.move();
 	socket.emit('updatedPosition', {position: cube.position});
 	render();
+
+
 	//console.log(update());
 
 	calculatePosition();
@@ -80,13 +112,17 @@ function animate() {
 	checkPoint3_Collision();
 	checkPoint4_Collision();
 
-	// chasingTrail();
+	//  chasingTrail();
 
-	//checkPoint1_Collision_2();
-	//checkPoint2_Collision_2();
-	//checkPoint3_Collision_2();
-	//checkPoint4_Collision_2();
+	checkPoint1_Collision_2();
+	checkPoint2_Collision_2();
+	checkPoint3_Collision_2();
+	checkPoint4_Collision_2();
 	stats.end();
+
+	}
+
+	render();	
 
 }
 
