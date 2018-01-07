@@ -95,6 +95,7 @@ $(document).ready(function () {
 
 		$('#lap').fadeOut(300);
 		numberOfLaps = lapinput.value;
+		socket.emit("noOfLaps", numberOfLaps);
 		lapsNumber1.innerHTML = numberOfLaps;
 		lapsNumber2.innerHTML = numberOfLaps;
 		music.play();
@@ -127,9 +128,10 @@ socket.on('IamSecond', function(data){
 	console.log("I'm second player");
 	waiting.style.display = "none";
 	$('#lap').fadeOut(300);
-	numberOfLaps = 1;
+	numberOfLaps = data;
+	console.log(numberOfLaps)
 	lapsNumber1.innerHTML = numberOfLaps;
 	lapsNumber2.innerHTML = numberOfLaps;
 	music.play();
 	start_game = true;
-})
+});
