@@ -24,7 +24,7 @@ function init() {
 	camera.position.y = 100;
 	// camera.position.x = 100;
 
-	// camera.lookAt(scene.position);
+	camera.lookAt(scene.position);
 
 
 	var ambient = new THREE.AmbientLight(0xffffff, 1);
@@ -127,7 +127,7 @@ function init() {
 
 	cube.castShadow = true;
 	cube.receiveShadow = true;
-	cube.add(camera)
+	//cube.add(camera)
 
 	sphere_1 = new THREE.Sphere(cube.position,50);
 
