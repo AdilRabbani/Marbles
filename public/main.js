@@ -89,6 +89,10 @@ function animate() {
 	else{
 		cube.translateOnAxis ( movement.direction, -accelaration*10 )
 		accelaration = 0;
+		collision = true;
+		setTimeout(function(){
+			collision = false;
+		}, 500)
 	}
 	// if(!willCollideWall(cube_2, movement2.direction, accelaration2)){
 	// 	cube_2.translateOnAxis ( movement2.direction, accelaration2 )

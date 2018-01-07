@@ -6,10 +6,9 @@ var socket = io();
 document.body.onkeydown = function (e) {
 	pressedKeys[e.keyCode] = e.type == 'keydown';
 
-	if (e.keyCode == 13)
-	{
-		$(document).ready(function(){ 
-            	
+	if (e.keyCode == 13) {
+		$(document).ready(function () {
+
 			$('#menu').fadeOut(500);
 			lap_set.style.display = "inline";
 
@@ -26,7 +25,7 @@ document.body.onkeyup = function (e) {
 	if (e.keyCode == 73) {
 		reduceAccel2(100);
 	}
-	
+
 	pressedKeys[e.keyCode] = e.type == 'keydown';
 };
 
@@ -87,33 +86,31 @@ socket.on('updatedPosition', function (data) {
 	console.log(data.position)
 });
 
-$(document).ready(function(){ 
-            
-    $("#lapbutton").click(function () {
-        
+$(document).ready(function () {
+
+	$("#lapbutton").click(function () {
+
 		$('#lap').fadeOut(300);
 		numberOfLaps = lapinput.value;
 		lapsNumber1.innerHTML = numberOfLaps;
 		lapsNumber2.innerHTML = numberOfLaps;
-        start_game = true; 
-		music.play(); 
-        
-    });
+		start_game = true;
+		music.play();
+
+	});
 
 });
 
-function finishedFunc()
-{
+function finishedFunc() {
 	$("#finished").fadeIn(500);
-	
-	if (player1Laps > numberOfLaps)
-	{
+
+	if (player1Laps > numberOfLaps) {
 		winner.innerHTML = "<div style='color:white;background-color:#FF4081;height:50px;margin-top:10px;'>Player 1 Wins!</div>";
 	}
 
 	else {
 		winner.innerHTML = "<div style='color:white;background-color:#FDD835;height:50px;margin-top:10px;'>Player 2 Wins!</div>";
 	}
-	
+
 	start_game = false;
 }

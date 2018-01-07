@@ -24,7 +24,7 @@ function init() {
 	camera.position.y = 100;
 	// camera.position.x = 100;
 
-	camera.lookAt(scene.position);
+	// camera.lookAt(scene.position);
 
 
 	var ambient = new THREE.AmbientLight(0xffffff, 1);
@@ -127,6 +127,7 @@ function init() {
 
 	cube.castShadow = true;
 	cube.receiveShadow = true;
+	cube.add(camera)
 
 	sphere_1 = new THREE.Sphere(cube.position,50);
 
@@ -298,6 +299,10 @@ function init() {
 	fence_1.position.y = -1020;
 
 	scene.add(fence_1);
+	var jsonLoader = new THREE.JSONLoader();
+	jsonLoader.load("../models/car3/_on.js", function (geometry) {
+		var mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial() );
+		scene.add(mesh) });
 
 	/////////////////////////////////////////////////////
 
