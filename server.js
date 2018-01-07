@@ -7,6 +7,7 @@ var numberOfLaps = 1;
 
 
 var connectCounter = 0;
+var lapSet = false;
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -27,6 +28,9 @@ io.on('connection', function (socket) {
 	});
 	socket.on('playername', function (data) {
 		socket.broadcast.emit('playername', data);
+	});
+	socket.on('Finished', function (data) {
+		socket.broadcast.emit('Finished', data);
 	});
 	socket.on('noOfLaps', function (data) {
 		numberOfLaps = data;

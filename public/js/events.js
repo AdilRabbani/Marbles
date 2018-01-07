@@ -133,6 +133,7 @@ function finishedFunc() {
 	}
 
 	start_game = false;
+	socket.emit("Finished");
 }
 
 
@@ -184,4 +185,17 @@ socket.on("secondUserStarted", function (data) {
 socket.on("playername", function (data) {
 	$("#player2name, #player2lapname").html(data);
 	player2name = data;
+})
+
+socket.on("Finished", function(data){
+	$("#finished").fadeIn(500);
+
+	if (player1Laps > numberOfLaps) {
+		winner.innerHTML = "<div style='color:white;background-color:#FF4081;height:50px;margin-top:10px;'>" + $("#nameinput").val() + " Wins!</div>";
+	}
+
+	else {
+		winner.innerHTML = "<div style='color:white;background-color:#FDD835;height:50px;margin-top:10px;'>" + player2name + " Wins!</div>";
+	}
+	start_game = false;
 })
